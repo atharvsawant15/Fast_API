@@ -4,7 +4,7 @@ from models import Product
 # FastAPI app
 app = FastAPI()
 
-# Home page
+# Home page normal
 @app.get("/")
 def home():
     return "Home page"
