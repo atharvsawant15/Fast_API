@@ -7,7 +7,7 @@ class Product(BaseModel):
     price:float
     quantity: int
 
-# we dont required contructor when we use Basemodel has it validates the data
+# we dont required contructor when we use Basemodel has it validate
     # def __init__(self,id:int,name:str,descriptiion:str,price:float,qunantity:str):
     #     self.id = id
     #     self.name = name
