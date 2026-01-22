@@ -17,7 +17,7 @@ products = [
     Product(id=3, name="tablet", description="android tablet", price=500.0, quantity=2),
     Product(id=4, name="headphones", description="wireless headphones", price=150.0, quantity=3),
     Product(id=5, name="keyboard", description="mechanical keyboard", price=120.0, quantity=4)
-Product(id=6, name="key", description="mechanical keyboard", price=130.0, quantity=6)
+Product(id=6, name="key", description="mechanical keyboard", price=130.0, quantity=8)
 ]
 
 @app.get("/products/{id}")
