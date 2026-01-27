@@ -1,15 +1,18 @@
 from fastapi import FastAPI
-from models import Product
+from database import SessionLocal, engine
+from database_models import Base, Product
 
 # FastAPI app
 app = FastAPI()
+
+Base.metadata.create_all(bind=engine)
 
 # Home page normal back
 @app.get("/")
 def home():
     return "Home page"
 
-# products = ["appel","banana","fish"]
+# products = ["apple","banana","fish"]
 
 products = [
     Product(id=1, name="laptop", description="gaming laptop", price=100.0, quantity=1),
@@ -20,6 +23,18 @@ products = [
 Product(id=6, name="key", description="mechanical keyboard", price=130.0, quantity=8)
 ]
 
+def init_db():
+
+    db = SessionLocal()
+
+    count = db.query(Product).count()
+    if count == 0 :
+        for product in products:
+            db.add(product)
+        db.commit()
+
+init_db()
+
 @app.get("/products/{id}")
 def specific_product(id: int):
     for product in products:
@@ -29,6 +44,8 @@ def specific_product(id: int):
 
 @app.get("/products")
 def get_all_products():
+    db = session()
+    db.querry()
     return products
 
 @app.post("/products")
