@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from database import SessionLocal, engine
 from database_models import Base, Product
 
-# FastAPI app
+# FastAPI app.
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
